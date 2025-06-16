@@ -1,0 +1,19 @@
+openapi: 3.0.0
+info:
+  title: products Collaborative Whiteboard API
+  description: API for a collaborative whiteboard application similar to Miro
+  version: 1.0.0
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+
+paths:
+
+  /products:
+    get:
+      $ref: "./endpoints/products.yaml#/getAllProducts"

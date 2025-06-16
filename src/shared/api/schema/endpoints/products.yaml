@@ -1,0 +1,50 @@
+schemas:
+  Product:
+    type: object
+    required:
+      - id
+      - name
+      - description
+      - createdAt
+      - updatedAt
+      - isFavorite
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+      isFavorite:
+        type: boolean
+  ProductsList:
+    type: object
+    required:
+      - list
+      - total
+      - totalPages
+    properties:
+      list:
+        type: array
+        items:
+          $ref: '#/schemas/Product'
+      total:
+        type: integer
+      totalPages:
+        type: integer
+
+getAllProducts:
+  summary: Get all products for current user
+  responses:
+    '200':
+      description: A list of products
+      content:
+        application/json:
+          schema:
+            $ref: '#/schemas/ProductsList'
