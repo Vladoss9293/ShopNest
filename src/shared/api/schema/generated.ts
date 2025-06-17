@@ -14,7 +14,10 @@ export interface paths {
         /** Get all products for current user */
         get: {
             parameters: {
-                query?: never;
+                query?: {
+                    page?: number;
+                    limit?: number;
+                };
                 header?: never;
                 path?: never;
                 cookie?: never;

@@ -47,6 +47,19 @@ schemas:
 
 getAllProducts:
   summary: Get all products for current user
+  parameters:
+    - name: page
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 1
+    - name: limit
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 10
   responses:
     '200':
       description: A list of products
