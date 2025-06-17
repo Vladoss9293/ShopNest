@@ -5,6 +5,8 @@ schemas:
       - id
       - name
       - description
+      - price
+      - category
       - createdAt
       - updatedAt
       - isFavorite
@@ -14,6 +16,10 @@ schemas:
       name:
         type: string
       description:
+        type: string
+      price:
+        type: number
+      category:
         type: string
       createdAt:
         type: string

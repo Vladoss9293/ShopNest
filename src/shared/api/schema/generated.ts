@@ -48,6 +48,8 @@ export interface components {
             id: string;
             name: string;
             description: string;
+            price: number;
+            category: string;
             /** Format: date-time */
             createdAt: string;
             /** Format: date-time */
