@@ -6,6 +6,7 @@ schemas:
       - name
       - description
       - price
+      - imageUrl
       - category
       - createdAt
       - updatedAt
@@ -19,6 +20,9 @@ schemas:
         type: string
       price:
         type: number
+      imageUrl:
+        type: string
+        format: url
       category:
         type: string
       createdAt:

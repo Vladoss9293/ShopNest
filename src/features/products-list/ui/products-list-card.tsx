@@ -1,0 +1,39 @@
+import { Button } from "@/shared/ui/kit/button";
+import { ShoppingCart } from "lucide-react"
+
+interface ProductsListCardProps {
+  product: {
+    id: string;
+    name: string;
+    price: number;
+    imageUrl: string;
+  };
+}
+
+export function ProductsListCard({ product }: ProductsListCardProps) {
+  return (
+    <div className="flex px-4 flex-col bg-white">
+      <span className="opacity-50 text-sm text-right pr-2">
+        код: {product.id}
+      </span>
+      <div className="h-60 flex items-center justify-center">
+        <img src={product.imageUrl} alt="" />
+      </div>
+      <div className="pt-1">
+        <p className="line-clamp-2 text-sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+          quis laborum fugiat eos minus animi adipisci tempore similique illum.
+        </p>
+      </div>
+      <div className="flex justify-between py-2 items-center">
+        <div className="">
+          <span className="text-2xl font-semibold">888</span>
+          <span className="text-lg font-semibold">₴</span>
+        </div>
+        <div>
+            <Button className="bg-green-500 hover:bg-green-600 cursor-pointer text-white"><ShoppingCart /></Button>
+        </div>
+      </div>
+    </div>
+  );
+}
