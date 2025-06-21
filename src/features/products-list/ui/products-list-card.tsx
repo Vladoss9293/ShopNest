@@ -21,13 +21,12 @@ export function ProductsListCard({ product }: ProductsListCardProps) {
       </div>
       <div className="pt-1">
         <p className="line-clamp-2 text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-          quis laborum fugiat eos minus animi adipisci tempore similique illum.
+          {product.name}
         </p>
       </div>
       <div className="flex justify-between py-2 items-center">
         <div className="">
-          <span className="text-2xl font-semibold">888</span>
+          <span className="text-2xl font-semibold">{product.price}</span>
           <span className="text-lg font-semibold">₴</span>
         </div>
         <div>
