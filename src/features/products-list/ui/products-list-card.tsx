@@ -1,5 +1,7 @@
+import { ROUTES } from "@/shared/model/routes";
 import { Button } from "@/shared/ui/kit/button";
 import { ShoppingCart } from "lucide-react"
+import { href, Link } from "react-router-dom";
 
 interface ProductsListCardProps {
   product: {
@@ -21,7 +23,9 @@ export function ProductsListCard({ product }: ProductsListCardProps) {
       </div>
       <div className="pt-1">
         <p className="line-clamp-2 text-sm">
-          {product.name}
+          <Link to={href(ROUTES.PRODUCT, { productId: String(product.id) })}>
+            {product.name}
+          </Link>
         </p>
       </div>
       <div className="flex justify-between py-2 items-center">

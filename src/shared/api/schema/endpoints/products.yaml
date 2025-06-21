@@ -50,7 +50,7 @@ schemas:
         type: integer
 
 getAllProducts:
-  summary: Get all products for current user
+  summary: Get all store products
   parameters:
     - name: page
       in: query
@@ -71,3 +71,22 @@ getAllProducts:
         application/json:
           schema:
             $ref: '#/schemas/ProductsList'
+getProductById:
+  summary: Get product by id
+  parameters:
+    - name: productId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Product
+      content:
+        application/json:
+          schema:
+            $ref: '#/schemas/Product'
+    '404':
+      $ref: '../shared/responses.yaml#/NotFoundError'
+
+  

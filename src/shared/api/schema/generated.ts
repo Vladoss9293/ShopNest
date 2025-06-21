@@ -11,7 +11,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Get all products for current user */
+        /** Get all store products */
         get: {
             parameters: {
                 query?: {
@@ -33,6 +33,45 @@ export interface paths {
                         "application/json": components["schemas"]["ProductsList"];
                     };
                 };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/product/{productId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get product by id */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    productId: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Product */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Product"];
+                    };
+                };
+                404: components["responses"]["NotFoundError"];
             };
         };
         put?: never;
@@ -66,8 +105,22 @@ export interface components {
             total: number;
             totalPages: number;
         };
+        Error: {
+            message: string;
+            code: string;
+        };
     };
-    responses: never;
+    responses: {
+        /** @description Resource not found */
+        NotFoundError: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                "application/json": components["schemas"]["Error"];
+            };
+        };
+    };
     parameters: never;
     requestBodies: never;
     headers: never;
