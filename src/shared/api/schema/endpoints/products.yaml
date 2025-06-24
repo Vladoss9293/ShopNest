@@ -21,8 +21,10 @@ schemas:
       price:
         type: number
       imageUrl:
-        type: string
-        format: url
+        type: array
+        items:
+          type: string
+          format: url
       category:
         type: string
       createdAt:

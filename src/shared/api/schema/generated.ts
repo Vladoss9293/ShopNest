@@ -91,8 +91,7 @@ export interface components {
             name: string;
             description: string;
             price: number;
-            /** Format: url */
-            imageUrl: string;
+            imageUrl: string[];
             category: string;
             /** Format: date-time */
             createdAt: string;

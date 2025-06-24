@@ -10,8 +10,13 @@ const generateProducts: ApiSchemas["Product"][] = Array.from(
       name: `Product ${i}`,
       description: `Description for Product ${i}`,
       price: 100 * i,
-      imageUrl:
+      imageUrl:[
+        "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/u/a/uaua_iphone14_midnight_pdp_image_position-1a_2.jpg/w_600",
         "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://skin.comfy.ua/media/catalog/product/l/e/lenovo_v15_g4_iru.jpg/w_1440",
+        "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://skin.comfy.ua/media/catalog/product/l/e/lenovo_v15_g4_iru.jpg/w_1440",
+        "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://skin.comfy.ua/media/catalog/product/l/e/lenovo_v15_g4_iru.jpg/w_1440",
+        "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://skin.comfy.ua/media/catalog/product/l/e/lenovo_v15_g4_iru.jpg/w_1440",
+      ],
       category: "Category A",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),

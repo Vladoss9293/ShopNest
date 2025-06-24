@@ -1,15 +1,11 @@
+import type { ApiSchemas } from "@/shared/api/schema";
 import { ROUTES } from "@/shared/model/routes";
 import { Button } from "@/shared/ui/kit/button";
 import { ShoppingCart } from "lucide-react"
 import { href, Link } from "react-router-dom";
 
 interface ProductsListCardProps {
-  product: {
-    id: string;
-    name: string;
-    price: number;
-    imageUrl: string;
-  };
+  product: Pick<ApiSchemas['Product'], "id" | "imageUrl" | "name" | "price">
 }
 
 export function ProductsListCard({ product }: ProductsListCardProps) {
@@ -19,7 +15,7 @@ export function ProductsListCard({ product }: ProductsListCardProps) {
         код: {product.id}
       </span>
       <div className="h-60 flex items-center justify-center">
-        <img src={product.imageUrl} alt="" />
+        <img src={product.imageUrl[0] && product.imageUrl[0]} alt="" />
       </div>
       <div className="pt-1">
         <p className="line-clamp-2 text-sm">
