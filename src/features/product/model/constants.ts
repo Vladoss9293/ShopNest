@@ -1,9 +1,9 @@
-type ProductHeaderTabs = {
+type ProductTabsData = {
     id: number;
     text: string;
 };
 
-export const productHeaderTabs: ProductHeaderTabs[] = [
+export const productTabsData: ProductTabsData[] = [
     {
         id: 1,
         text: 'ПРО ТОВАР'

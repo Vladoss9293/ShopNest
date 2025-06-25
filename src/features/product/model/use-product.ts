@@ -1,7 +1,6 @@
 import { publicRqClient } from "@/shared/api/instance";
-import { useEffect } from "react";
 
-export function UseProduct({ productId }: { productId: string }) {
+export function useProduct({ productId }: { productId: string }) {
   const { data, isPending } = publicRqClient.useQuery(
     "get",
     "/product/{productId}",
@@ -13,10 +12,6 @@ export function UseProduct({ productId }: { productId: string }) {
       },
     }
   );
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return {
     data,
