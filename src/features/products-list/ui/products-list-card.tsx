@@ -1,6 +1,7 @@
 import type { ApiSchemas } from "@/shared/api/schema";
 import { ROUTES } from "@/shared/model/routes";
 import { Button } from "@/shared/ui/kit/button";
+import ProductCode from "@/shared/ui/kit/product-code";
 import { ShoppingCart } from "lucide-react"
 import { href, Link } from "react-router-dom";
 
@@ -11,9 +12,7 @@ interface ProductsListCardProps {
 export function ProductsListCard({ product }: ProductsListCardProps) {
   return (
     <div className="flex px-4 flex-col bg-white">
-      <span className="opacity-50 text-sm text-right pr-2">
-        код: {product.id}
-      </span>
+      <ProductCode id={product.id} />
       <div className="h-60 flex items-center justify-center">
         <img src={product.imageUrl[0] && product.imageUrl[0]} alt="" />
       </div>

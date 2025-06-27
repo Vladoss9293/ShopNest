@@ -1,5 +1,8 @@
+import clsx from "clsx";
+import { Crown } from "lucide-react";
+
 export function Badge({className}: {className: string}) {
   return (
-    <img className={className} data-src="https://cdn.comfy.ua/media/label/krash_6.svg" alt="Кращ" src="https://cdn.comfy.ua/media/label/krash_6.svg"></img>
+    <div className={clsx('flex gap-1 bg-orange-400 p-1 rounded text-white font-bold items-center', className)}><Crown className="text-yellow-300" /> Кращ</div>
   )
 }

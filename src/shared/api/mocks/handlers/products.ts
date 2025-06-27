@@ -47,7 +47,6 @@ export const productsHandlers = [
     });
   }),
   http.get("/product/{productId}", async ({ params }) => {
-    await delay(3000);
     const { productId } = params;
     const product = generateProducts.find((p) => p.id === productId);
 
