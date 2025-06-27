@@ -1,27 +1,26 @@
+import type { ApiSchemas } from "@/shared/api/schema";
+import { ROUTES } from "@/shared/model/routes";
 import { Button } from "@/shared/ui/kit/button";
+import ProductCode from "@/shared/ui/kit/product-code";
 import { ShoppingCart } from "lucide-react"
+import { href, Link } from "react-router-dom";
 
 interface ProductsListCardProps {
-  product: {
-    id: string;
-    name: string;
-    price: number;
-    imageUrl: string;
-  };
+  product: Pick<ApiSchemas['Product'], "id" | "imageUrl" | "name" | "price">
 }
 
 export function ProductsListCard({ product }: ProductsListCardProps) {
   return (
     <div className="flex px-4 flex-col bg-white">
-      <span className="opacity-50 text-sm text-right pr-2">
-        код: {product.id}
-      </span>
+      <ProductCode id={product.id} />
       <div className="h-60 flex items-center justify-center">
-        <img src={product.imageUrl} alt="" />
+        <img src={product.imageUrl[0] && product.imageUrl[0]} alt="" />
       </div>
       <div className="pt-1">
         <p className="line-clamp-2 text-sm">
-          {product.name}
+          <Link to={href(ROUTES.PRODUCT, { productId: String(product.id) })}>
+            {product.name}
+          </Link>
         </p>
       </div>
       <div className="flex justify-between py-2 items-center">

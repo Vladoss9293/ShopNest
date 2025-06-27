@@ -5,7 +5,7 @@ import type { ApiPaths } from "./schema";
 
 // public
 
-export const publicFetchClient = createFetchClient<ApiPaths>({
+const publicFetchClient = createFetchClient<ApiPaths>({
     baseUrl: CONFIG.API_BASE_URL,
 })
 

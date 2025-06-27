@@ -17,3 +17,6 @@ paths:
   /products:
     get:
       $ref: "./endpoints/products.yaml#/getAllProducts"
+  /product/{productId}:
+    get:
+      $ref: "./endpoints/products.yaml#/getProductById"
