@@ -6,7 +6,9 @@ export default function AppHeader() {
   return (
     <header className="bg-background border-b border-border/40 shadow-sm py-3 px-5 mb-6">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="text-xl font-semibold">ShopNest</div>
+        <div className="text-xl font-semibold">
+          <Link to={ROUTES.HOME}>ShopNest</Link>
+        </div>
 
         <Button asChild variant="default" size="sm">
           <Link to={ROUTES.LOGIN}>Войти</Link>

@@ -4,8 +4,12 @@ import Autoplay from "embla-carousel-autoplay";
 
 export function GalleryCarousel({
   images,
+  nextPage = true,
+  previousPage = true,
 }: {
   images: string[];
+  nextPage?: boolean;
+  previousPage?: boolean;
 }) {
   const carouselRef = useRef(null);
 
@@ -33,14 +37,18 @@ export function GalleryCarousel({
             </CarouselItem>
           ))}
       </CarouselContent>
-      <CarouselNext
-        variant={"default"}
-        className="bg-white w-10 h-10 shadow hover:shadow-xl/10"
-      />
-      <CarouselPrevious
-        variant={"default"}
-        className="bg-white w-10 h-10 shadow hover:shadow-xl/10"
-      />
+      {nextPage && (
+        <CarouselNext
+          variant={"default"}
+          className="bg-white w-10 h-10 shadow hover:shadow-xl/10"
+        />
+      )}
+      {previousPage && (
+        <CarouselPrevious
+          variant={"default"}
+          className="bg-white w-10 h-10 shadow hover:shadow-xl/10"
+        />
+      )}
     </Carousel>
   );
 }

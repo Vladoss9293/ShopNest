@@ -3,7 +3,7 @@ import { Badge } from "@/shared/ui/kit/badge";
 import ProductCode from "@/shared/ui/kit/product-code";
 import ReviewCount from "@/shared/ui/kit/review-count";
 import { Skeleton } from "@/shared/ui/kit/skeleton";
-import StarRating from "@/shared/ui/kit/start-rating";
+import { StarRating } from "@/shared/ui/kit/star-rating";
 import { StockStatus } from "@/shared/ui/kit/stock-status";
 
 export default function ProductInfo({
@@ -16,7 +16,7 @@ export default function ProductInfo({
       {productData ? (
         <div>
           <div className="text-justify line-clamp-2">
-            <Badge className="float-left mt-1 mr-3" />
+            <Badge className="float-left mt-1.5 mr-3" />
             <p className="text-3xl font-bold w-[75%]">
               Смартфон Apple iPhone 14 128Gb Midnight
             </p>
@@ -25,8 +25,8 @@ export default function ProductInfo({
             <div className="flex items-center gap-10">
               <StockStatus Available={true} />
               <div className="flex gap-4">
-                <StarRating value={3} className="" />
-                <ReviewCount numberOfReviews={83} />
+                <StarRating value={productData.totalStars} className="" />
+                <ReviewCount numberOfReviews={productData.totalReviews} />
               </div>
             </div>
             <ProductCode id={productData.id} />

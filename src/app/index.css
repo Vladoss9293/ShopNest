@@ -1,2 +1,34 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@font-face {
+  font-family: 'PTRootUIWeb';
+  src: url('/fonts/regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PTRootUIWeb';
+  src: url('/fonts/medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PTRootUIWeb';
+  src: url('/fonts/bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PTRootUIWebIcons';
+  src: url('/fonts/icons-v5.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

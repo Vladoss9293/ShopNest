@@ -6,6 +6,7 @@ schemas:
       - name
       - description
       - price
+      - discount
       - imageUrl
       - category
       - createdAt
@@ -19,6 +20,12 @@ schemas:
       description:
         type: string
       price:
+        type: number
+      discount:
+        type: number
+      totalReviews:
+        type: number
+      totalStars:
         type: number
       imageUrl:
         type: array

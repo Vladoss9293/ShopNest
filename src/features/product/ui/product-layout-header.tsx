@@ -1,58 +1,60 @@
 import { useElementVisibility } from "@/shared/lib/hooks/use-element-visibility";
-import { useState } from "react";
-import { productTabsData } from "../model/constants";
 import { Tabs } from "@/shared/ui/kit/tabs";
+import { productTabsData, type ProductTabId } from "../model/constants";
 
 /**
- * Компонент фиксированного заголовка с табами для страницы товара.
+ * Фиксированный заголовок с навигационными табами для страницы товара.
  *
- * Отображает список табов (разделов товара) и следит за прокруткой,
- * добавляя тень, когда заголовок закрепляется (sticky).
+ * Отображает список табов (разделов товара) и отслеживает прокрутку страницы,
+ * чтобы добавлять тень к заголовку, когда он становится "липким" (sticky).
  *
- * Также вызывает callback при клике на таб.
+ * При клике на таб вызывает переданный callback с id выбранного таба,
+ * позволяя родительскому компоненту управлять навигацией по разделам.
  *
- * Использует хук useElementVisibility для определения,
- * когда элемент уходит за верхний край вьюпорта.
+ * Использует хук useElementVisibility для определения момента,
+ * когда невидимый элемент уходит за верхнюю границу вьюпорта,
+ * чтобы добавить визуальный эффект (тень) к заголовку.
  *
  * @param {Object} props
- * @param {(id: number) => void} props.onTabClick - Функция обратного вызова при клике на таб. 
- * Получает id выбранного таба, после чего якорем перекидывает на секцию.
- * @returns {JSX.Element}
+ * @param {TabItem} props.tabs - Массив данных для табов (id, текст и др.).
+ * @param {ProductTabId} props.activeTab - Текущий активный таб.
+ * @param {(id: ProductTabId) => void} props.onTabClick - Обработчик клика по табу.
+ * @returns {JSX.Element} Компонент заголовка с табами.
  */
 
-export function ProductLayoutHeader({
-  onTabClick,
-}: {
-  onTabClick: (id: number) => void;
-}) {
+
+export type TabItem = typeof productTabsData;
+
+interface Props {
+  tabs: TabItem;
+  activeTab: ProductTabId;
+  onTabClick: (id: ProductTabId) => void;
+}
+
+export function ProductLayoutHeader({ activeTab, onTabClick, tabs }: Props) {
   const { ref, isTopHidden } = useElementVisibility();
-  const [isSelectTabs, setIsSelectTabs] = useState(1);
 
   return (
     <>
-      <div
-        ref={ref}
-        className="opacity-0 pointer-events-none"
-      />
+      <div ref={ref} className="opacity-0 pointer-events-none" />
 
       <div
         className={`sticky -top-[1px] z-50 w-full h-20 grid grid-cols-[1fr_1.2fr_1.2fr_1fr_1fr_1fr]
           font-sans text-md transition-shadow ${isTopHidden ? "shadow" : ""}`}
       >
-        {productTabsData.map((tab) => {
+        {tabs.map((tab, index) => {
           return (
             <Tabs
-              key={tab.id}
+              key={index}
               onClick={() => {
-                setIsSelectTabs(tab.id);
                 onTabClick(tab.id);
               }}
               className={
-                tab.id === isSelectTabs
+                tab.id === activeTab
                   ? "bg-white hover:bg-gray-200 border-b-4 border-green-600"
                   : "bg-white text-black/50 hover:bg-gray-100"
               }
-              isFirst={tab.id === 1 && true}
+              isFirst={tab.id === "about" && true}
               text={tab.text}
             />
           );

@@ -1,31 +1,11 @@
-type ProductTabsData = {
-    id: number;
-    text: string;
-};
+export const productTabsData = [
+  { id: "about", text: "ПРО ТОВАР" },
+  { id: "specs", text: "ХАРАКТЕРИСТИКИ" },
+  { id: "reviews", text: "ОТЗЫВЫ / ВОПРОСЫ" },
+  { id: "accessories", text: "АКСЕССУАРЫ" },
+  { id: "services", text: "СЕРВИСЫ" },
+  { id: "availability", text: "НАЛИЧИЕ" },
+  
+] as const;
 
-export const productTabsData: ProductTabsData[] = [
-    {
-        id: 1,
-        text: 'ПРО ТОВАР'
-    },
-    {
-        id: 2,
-        text: 'ХАРАКТЕРИСТИКИ'
-    },
-    {
-        id: 3,
-        text: 'ОТЗЫВЫ / ВОПРОСЫ'
-    },
-    {
-        id: 4,
-        text: 'АКСЕССУАРЫ'
-    },
-    {
-        id: 5,
-        text: 'СЕРВИСЫ'
-    },
-    {
-        id: 6,
-        text: 'НАЛИЧИЕ'
-    },
-]
+export type ProductTabId = typeof productTabsData[number]["id"];

@@ -91,6 +91,7 @@ export interface components {
             name: string;
             description: string;
             price: number;
+            discount: number;
             imageUrl: string[];
             category: string;
             /** Format: date-time */
