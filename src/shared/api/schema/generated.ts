@@ -92,6 +92,8 @@ export interface components {
             description: string;
             price: number;
             discount: number;
+            totalReviews?: number;
+            totalStars?: number;
             imageUrl: string[];
             category: string;
             /** Format: date-time */
